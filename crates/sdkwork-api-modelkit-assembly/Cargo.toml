@@ -14,6 +14,7 @@ axum.workspace = true
 tokio.workspace = true
 sdkwork-web-bootstrap.workspace = true
 sdkwork-web-core.workspace = true
+sdkwork-database-sqlx.workspace = true
 sdkwork-modelkit-database-host.workspace = true
 sdkwork-routes-modelkit-http-auth.workspace = true
 sdkwork-routes-modelkit-app-api.workspace = true

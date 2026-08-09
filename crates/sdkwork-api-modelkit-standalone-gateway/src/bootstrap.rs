@@ -1,6 +1,6 @@
 use axum::Router;
 use sdkwork_modelkit_database_host::build_application_services;
-use sdkwork_api_modelkit_assembly::assemble_api_router;
+use sdkwork_api_modelkit_assembly::assemble_business_routes;
 use sdkwork_routes_modelkit_app_api::wrap_router_with_web_framework_from_env;
 use sdkwork_web_bootstrap::{service_router, ServiceRouterConfig};
 
@@ -17,7 +17,7 @@ pub async fn build_router() -> Result<Router, Box<dyn std::error::Error + Send +
         .await
         .map_err(|error| -> Box<dyn std::error::Error + Send + Sync> { error.into() })?;
 
-    let domain = assemble_api_router(services).router;
+    let domain = assemble_business_routes(services).router;
     let protected = wrap_router_with_web_framework_from_env(domain).await;
 
     let business = Router::new().merge(iam_router).merge(protected).layer(

@@ -1818,6 +1818,7 @@ name = "sdkwork-api-modelkit-assembly"
 version = "0.1.0"
 dependencies = [
  "axum",
+ "sdkwork-database-sqlx",
  "sdkwork-modelkit-database-host",
  "sdkwork-routes-modelkit-app-api",
  "sdkwork-routes-modelkit-http-auth",

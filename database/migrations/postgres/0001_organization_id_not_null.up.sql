@@ -18,10 +18,12 @@
 
 BEGIN;
 
+ALTER TABLE mk_preference_entry ADD COLUMN IF NOT EXISTS organization_id TEXT NOT NULL DEFAULT '0';
 UPDATE mk_preference_entry SET organization_id = '0' WHERE organization_id IS NULL;
 ALTER TABLE mk_preference_entry ALTER COLUMN organization_id SET DEFAULT '0';
 ALTER TABLE mk_preference_entry ALTER COLUMN organization_id SET NOT NULL;
 
+ALTER TABLE mk_catalog_item ADD COLUMN IF NOT EXISTS organization_id TEXT NOT NULL DEFAULT '0';
 UPDATE mk_catalog_item SET organization_id = '0' WHERE organization_id IS NULL;
 ALTER TABLE mk_catalog_item ALTER COLUMN organization_id SET DEFAULT '0';
 ALTER TABLE mk_catalog_item ALTER COLUMN organization_id SET NOT NULL;

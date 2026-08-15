@@ -1,26 +1,16 @@
 use axum::Router;
-use sdkwork_modelkit_database_host::build_application_services;
-use sdkwork_api_modelkit_assembly::assemble_business_routes;
-use sdkwork_routes_modelkit_app_api::wrap_router_with_web_framework_from_env;
+use sdkwork_api_modelkit_assembly::assemble_api_router_from_env;
 use sdkwork_web_bootstrap::{service_router, ServiceRouterConfig};
 
 pub async fn build_router() -> Result<Router, Box<dyn std::error::Error + Send + Sync>> {
-    let services = build_application_services()
+    // Assembly owns ModelKit service construction, the embedded IAM App API
+    // surface (through the IAM application assembly), route composition, and
+    // the combined readiness set (API_ASSEMBLY_SPEC §6.1).
+    let composed = assemble_api_router_from_env()
         .await
         .map_err(|error| -> Box<dyn std::error::Error + Send + Sync> { error.into() })?;
 
-    sdkwork_iam_database_host::bootstrap_iam_database_from_env()
-        .await
-        .map_err(|error| -> Box<dyn std::error::Error + Send + Sync> { error.into() })?;
-
-    let iam_router = sdkwork_routes_iam_app_api::build_sdkwork_iam_app_api_router()
-        .await
-        .map_err(|error| -> Box<dyn std::error::Error + Send + Sync> { error.into() })?;
-
-    let domain = assemble_business_routes(services).router;
-    let protected = wrap_router_with_web_framework_from_env(domain).await;
-
-    let business = Router::new().merge(iam_router).merge(protected).layer(
+    let business = composed.router.layer(
         sdkwork_web_bootstrap::application_cors_layer_from_env(
             &["SDKWORK_MODELKIT_ENVIRONMENT"],
             &[
@@ -32,6 +22,6 @@ pub async fn build_router() -> Result<Router, Box<dyn std::error::Error + Send +
 
     Ok(service_router(
         business,
-        ServiceRouterConfig::default().with_always_ready(),
+        ServiceRouterConfig::default().with_readiness_check(composed.readiness_check.clone()),
     ))
 }

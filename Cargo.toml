@@ -46,6 +46,7 @@ sdkwork_iam_web_adapter = { package = "sdkwork-iam-web-adapter", path = "../sdkw
 sdkwork_iam_database_host = { package = "sdkwork-iam-database-host", path = "../sdkwork-iam/crates/sdkwork-iam-database-host" }
 sdkwork_iam_embedded_application_bootstrap = { package = "sdkwork-iam-embedded-application-bootstrap", path = "../sdkwork-iam/crates/sdkwork-iam-embedded-application-bootstrap" }
 sdkwork_routes_iam_app_api = { package = "sdkwork-routes-iam-app-api", path = "../sdkwork-iam/crates/sdkwork-routes-iam-app-api" }
+sdkwork_api_iam_assembly = { package = "sdkwork-api-iam-assembly", path = "../sdkwork-iam/crates/sdkwork-api-iam-assembly" }
 
 sdkwork-drive-storage-contract = { path = "../sdkwork-drive/crates/sdkwork-drive-storage-contract" }
 sdkwork-drive-workspace-service = { path = "../sdkwork-drive/crates/sdkwork-drive-workspace-service" }

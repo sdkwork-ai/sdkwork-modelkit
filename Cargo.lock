@@ -1839,14 +1839,10 @@ name = "sdkwork-api-modelkit-assembly"
 version = "0.1.0"
 dependencies = [
  "axum",
- "sdkwork-api-iam-assembly",
  "sdkwork-database-sqlx",
  "sdkwork-modelkit-database-host",
  "sdkwork-routes-modelkit-app-api",
- "sdkwork-routes-modelkit-http-auth",
  "sdkwork-web-bootstrap",
- "sdkwork-web-core",
- "tokio",
 ]
 
 [[package]]
@@ -1854,10 +1850,11 @@ name = "sdkwork-api-modelkit-standalone-gateway"
 version = "0.1.0"
 dependencies = [
  "axum",
+ "sdkwork-api-iam-assembly",
  "sdkwork-api-modelkit-assembly",
+ "sdkwork-iam-web-adapter",
  "sdkwork-web-bootstrap",
  "tokio",
- "tower-http 0.6.11",
  "tracing",
  "tracing-subscriber",
 ]

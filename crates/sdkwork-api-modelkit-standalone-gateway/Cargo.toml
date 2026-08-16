@@ -10,8 +10,9 @@ path = "src/main.rs"
 [dependencies]
 axum.workspace = true
 sdkwork-api-modelkit-assembly.workspace = true
+sdkwork_api_iam_assembly.workspace = true
+sdkwork_iam_web_adapter.workspace = true
 sdkwork-web-bootstrap.workspace = true
 tokio.workspace = true
-tower-http.workspace = true
 tracing.workspace = true
 tracing-subscriber.workspace = true

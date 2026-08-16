@@ -5,10 +5,8 @@
 //! contribution with its process-shared PostgreSQL pool.
 //!
 //! The assembly owns ModelKit service construction (`build_application_services`)
-//! and the embedded IAM App API surface, which enters through the IAM
-//! application assembly (`sdkwork_api_iam_assembly`, API_ASSEMBLY_SPEC §3/§6.1).
-//! The thin standalone gateway calls `assemble_api_router_from_env` and
-//! projects `.router` / `.readiness_check`.
+//! and returns one host-neutral contribution. Gateway hosts select dependency
+//! assemblies and install process-wide HTTP infrastructure.
 
 use std::sync::Arc;
 
@@ -16,9 +14,7 @@ use axum::Router;
 use sdkwork_database_sqlx::DatabasePool;
 use sdkwork_modelkit_database_host::{build_application_services, ModelkitApplicationServices};
 use sdkwork_routes_modelkit_app_api::state::ModelkitAppState;
-use sdkwork_web_bootstrap::{
-    ApiAssemblyContribution, ComposedApiAssembly, DatabasePoolReadinessCheck, ReadinessCheck,
-};
+use sdkwork_web_bootstrap::{ApiAssemblyContribution, DatabasePoolReadinessCheck, ReadinessCheck};
 
 /// Indivisible host-neutral API assembly contribution (web-bootstrap contract).
 pub type ApiAssembly = ApiAssemblyContribution;
@@ -50,42 +46,14 @@ pub fn assemble_business_routes(services: ModelkitApplicationServices) -> ApiAss
     .expect("modelkit contribution contract is valid")
 }
 
-pub async fn assemble_api_router_from_env() -> Result<ComposedApiAssembly, String> {
-    let services = build_application_services().await?;
-    let modelkit = assemble_business_routes(services);
-
-    // The embedded IAM App API surface enters through the IAM application
-    // assembly, not through route/service implementation crates
-    // (API_ASSEMBLY_SPEC §3/§6.1).
-    let iam = sdkwork_api_iam_assembly::assemble_app_api_contribution()
-        .await
-        .map_err(|error| format!("assemble embedded IAM App API: {error}"))?;
-
-    let mut composed = ComposedApiAssembly::try_compose("SDKWork ModelKit API", vec![iam, modelkit])
-        .map_err(|error| format!("compose ModelKit API profile: {error}"))?;
-    // One Web Framework layer over the complete selected profile
-    // (API_ASSEMBLY_SPEC §6.1).
-    composed.router =
-        sdkwork_routes_modelkit_app_api::wrap_router_with_web_framework_from_env(composed.router)
-            .await;
-    Ok(composed)
+pub async fn assemble_api_router_from_env() -> Result<ApiAssembly, String> {
+    assemble_api_router().await
 }
 
-/// ModelKit-only contribution from environment. Retained for host-neutral
-/// composition consumers; the thin standalone gateway uses
-/// [`assemble_api_router_from_env`] for the composed standalone profile.
+/// ModelKit-only contribution from environment.
 pub async fn assemble_api_router() -> Result<ApiAssembly, String> {
     let services = build_application_services().await?;
-    let assembly = assemble_business_routes(services);
-    ApiAssemblyContribution::from_manifest(
-        "sdkwork-modelkit",
-        "SDKWork Modelkit API",
-        sdkwork_routes_modelkit_app_api::wrap_router_with_web_framework_from_env(assembly.router)
-            .await,
-        sdkwork_routes_modelkit_app_api::gateway_route_manifest(),
-        Vec::new(),
-        Arc::new(sdkwork_web_bootstrap::AlwaysReady),
-    )
+    Ok(assemble_business_routes(services))
 }
 
 /// Assemble the Modelkit contribution against a caller-provided database pool so

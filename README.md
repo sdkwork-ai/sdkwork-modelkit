@@ -44,7 +44,7 @@ Or from repository root:
 pnpm dev
 ```
 
-Environment (see `configs/topology/standalone.unified-process.development.env`):
+Environment (see `etc/topology/standalone.development.env`):
 
 - `VITE_SDKWORK_MODELKIT_PLATFORM_API_GATEWAY_HTTP_URL` — gateway base URL
 - `VITE_SDKWORK_ACCESS_TOKEN` — optional dev bypass for IAM (development only)

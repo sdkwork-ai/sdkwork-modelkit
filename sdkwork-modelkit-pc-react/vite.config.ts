@@ -15,7 +15,6 @@ export default defineConfig(({mode}) => {
     },
     resolve: {
       alias: [
-        { find: '@sdkwork/utils', replacement: path.resolve(__dirname, '../../sdkwork-utils/packages/sdkwork-utils-typescript/src/index.ts') },
         { find: '@sdkwork/modelkit-pc-core/sdk', replacement: path.resolve(__dirname, './packages/sdkwork-modelkit-pc-core/src/sdk/index.ts') },
         { find: '@sdkwork/modelkit-pc-core/host', replacement: path.resolve(__dirname, './packages/sdkwork-modelkit-pc-core/src/host/index.ts') },
         { find: '@sdkwork/modelkit-sdk-typescript', replacement: path.resolve(__dirname, './sdks/sdkwork-modelkit-sdk-typescript/src/index.ts') },

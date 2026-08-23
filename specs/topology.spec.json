@@ -220,7 +220,90 @@
   },
   "cloudPublicHosts": {
     "platform.api-gateway": {
-      "httpHost": "api.sdkwork.com"
+      "httpHost": "api.sdkwork.com",
+      "environments": {
+        "development": {
+          "httpHosts": [
+            "api-dev.sdkwork.com",
+            "api-dev.birdcoder.com",
+            "api-dev.dtupay.com",
+            "api-dev.sdkwork.cn",
+            "api-dev.birdcoder.cn",
+            "api-dev.dtupay.cn"
+          ]
+        },
+        "test": {
+          "httpHosts": [
+            "api-test.sdkwork.com",
+            "api-test.birdcoder.com",
+            "api-test.dtupay.com",
+            "api-test.sdkwork.cn",
+            "api-test.birdcoder.cn",
+            "api-test.dtupay.cn"
+          ]
+        },
+        "staging": {
+          "httpHosts": [
+            "api-staging.sdkwork.com",
+            "api-staging.birdcoder.com",
+            "api-staging.dtupay.com",
+            "api-staging.sdkwork.cn",
+            "api-staging.birdcoder.cn",
+            "api-staging.dtupay.cn"
+          ]
+        }
+      },
+      "httpHosts": [
+        "api.sdkwork.com",
+        "api.birdcoder.com",
+        "api.dtupay.com",
+        "api.sdkwork.cn",
+        "api.birdcoder.cn",
+        "api.dtupay.cn"
+      ]
+    },
+    "application.public-ingress": {
+      "httpHost": "modelkit.sdkwork.com",
+      "environments": {
+        "development": {
+          "httpHosts": [
+            "modelkit-dev.sdkwork.com",
+            "modelkit-dev.birdcoder.com",
+            "modelkit-dev.dtupay.com",
+            "modelkit-dev.sdkwork.cn",
+            "modelkit-dev.birdcoder.cn",
+            "modelkit-dev.dtupay.cn"
+          ]
+        },
+        "test": {
+          "httpHosts": [
+            "modelkit-test.sdkwork.com",
+            "modelkit-test.birdcoder.com",
+            "modelkit-test.dtupay.com",
+            "modelkit-test.sdkwork.cn",
+            "modelkit-test.birdcoder.cn",
+            "modelkit-test.dtupay.cn"
+          ]
+        },
+        "staging": {
+          "httpHosts": [
+            "modelkit-staging.sdkwork.com",
+            "modelkit-staging.birdcoder.com",
+            "modelkit-staging.dtupay.com",
+            "modelkit-staging.sdkwork.cn",
+            "modelkit-staging.birdcoder.cn",
+            "modelkit-staging.dtupay.cn"
+          ]
+        }
+      },
+      "httpHosts": [
+        "modelkit.sdkwork.com",
+        "modelkit.birdcoder.com",
+        "modelkit.dtupay.com",
+        "modelkit.sdkwork.cn",
+        "modelkit.birdcoder.cn",
+        "modelkit.dtupay.cn"
+      ]
     }
   },
   "packaging": {

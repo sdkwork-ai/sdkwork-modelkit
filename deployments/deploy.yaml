@@ -40,6 +40,38 @@ profiles:
         tls: dtupay.cn
         mode: web+api
         web: pc
+      - domain: modelkit-test.skubc.com
+        tls: skubc.com
+        mode: web+api
+        web: pc
+      - domain: modelkit-test.skubc.cn
+        tls: skubc.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit-test.zowalk.com
+        tls: zowalk.com
+        mode: web+api
+        web: pc
+      - domain: modelkit-test.zowalk.cn
+        tls: zowalk.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit-test.offer86.com
+        tls: offer86.com
+        mode: web+api
+        web: pc
+      - domain: modelkit-test.offer86.cn
+        tls: offer86.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit-test.86offer.com
+        tls: 86offer.com
+        mode: web+api
+        web: pc
+      - domain: modelkit-test.86offer.cn
+        tls: 86offer.cn
+        mode: web+api
+        web: pc
     packages:
       - desktop-windows
       - desktop-macos
@@ -90,6 +122,38 @@ profiles:
         tls: dtupay.cn
         mode: web+api
         web: pc
+      - domain: modelkit-staging.skubc.com
+        tls: skubc.com
+        mode: web+api
+        web: pc
+      - domain: modelkit-staging.skubc.cn
+        tls: skubc.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit-staging.zowalk.com
+        tls: zowalk.com
+        mode: web+api
+        web: pc
+      - domain: modelkit-staging.zowalk.cn
+        tls: zowalk.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit-staging.offer86.com
+        tls: offer86.com
+        mode: web+api
+        web: pc
+      - domain: modelkit-staging.offer86.cn
+        tls: offer86.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit-staging.86offer.com
+        tls: 86offer.com
+        mode: web+api
+        web: pc
+      - domain: modelkit-staging.86offer.cn
+        tls: 86offer.cn
+        mode: web+api
+        web: pc
     packages:
       - desktop-windows
       - desktop-macos
@@ -138,6 +202,38 @@ profiles:
         web: pc
       - domain: modelkit.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit.skubc.com
+        tls: skubc.com
+        mode: web+api
+        web: pc
+      - domain: modelkit.skubc.cn
+        tls: skubc.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit.zowalk.com
+        tls: zowalk.com
+        mode: web+api
+        web: pc
+      - domain: modelkit.zowalk.cn
+        tls: zowalk.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit.offer86.com
+        tls: offer86.com
+        mode: web+api
+        web: pc
+      - domain: modelkit.offer86.cn
+        tls: offer86.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit.86offer.com
+        tls: 86offer.com
+        mode: web+api
+        web: pc
+      - domain: modelkit.86offer.cn
+        tls: 86offer.cn
         mode: web+api
         web: pc
     packages:
@@ -193,6 +289,46 @@ profiles:
         apiPathStyle: full-prefix
       - domain: modelkit.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+        apiPathStyle: full-prefix
+      - domain: modelkit.skubc.com
+        tls: skubc.com
+        mode: web+api
+        web: pc
+        apiPathStyle: full-prefix
+      - domain: modelkit.skubc.cn
+        tls: skubc.cn
+        mode: web+api
+        web: pc
+        apiPathStyle: full-prefix
+      - domain: modelkit.zowalk.com
+        tls: zowalk.com
+        mode: web+api
+        web: pc
+        apiPathStyle: full-prefix
+      - domain: modelkit.zowalk.cn
+        tls: zowalk.cn
+        mode: web+api
+        web: pc
+        apiPathStyle: full-prefix
+      - domain: modelkit.offer86.com
+        tls: offer86.com
+        mode: web+api
+        web: pc
+        apiPathStyle: full-prefix
+      - domain: modelkit.offer86.cn
+        tls: offer86.cn
+        mode: web+api
+        web: pc
+        apiPathStyle: full-prefix
+      - domain: modelkit.86offer.com
+        tls: 86offer.com
+        mode: web+api
+        web: pc
+        apiPathStyle: full-prefix
+      - domain: modelkit.86offer.cn
+        tls: 86offer.cn
         mode: web+api
         web: pc
         apiPathStyle: full-prefix

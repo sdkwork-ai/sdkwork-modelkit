@@ -229,7 +229,15 @@
             "api-dev.dtupay.com",
             "api-dev.sdkwork.cn",
             "api-dev.birdcoder.cn",
-            "api-dev.dtupay.cn"
+            "api-dev.dtupay.cn",
+            "api-dev.skubc.com",
+            "api-dev.skubc.cn",
+            "api-dev.zowalk.com",
+            "api-dev.zowalk.cn",
+            "api-dev.offer86.com",
+            "api-dev.offer86.cn",
+            "api-dev.86offer.com",
+            "api-dev.86offer.cn"
           ]
         },
         "test": {
@@ -239,7 +247,15 @@
             "api-test.dtupay.com",
             "api-test.sdkwork.cn",
             "api-test.birdcoder.cn",
-            "api-test.dtupay.cn"
+            "api-test.dtupay.cn",
+            "api-test.skubc.com",
+            "api-test.skubc.cn",
+            "api-test.zowalk.com",
+            "api-test.zowalk.cn",
+            "api-test.offer86.com",
+            "api-test.offer86.cn",
+            "api-test.86offer.com",
+            "api-test.86offer.cn"
           ]
         },
         "staging": {
@@ -249,7 +265,15 @@
             "api-staging.dtupay.com",
             "api-staging.sdkwork.cn",
             "api-staging.birdcoder.cn",
-            "api-staging.dtupay.cn"
+            "api-staging.dtupay.cn",
+            "api-staging.skubc.com",
+            "api-staging.skubc.cn",
+            "api-staging.zowalk.com",
+            "api-staging.zowalk.cn",
+            "api-staging.offer86.com",
+            "api-staging.offer86.cn",
+            "api-staging.86offer.com",
+            "api-staging.86offer.cn"
           ]
         }
       },
@@ -259,7 +283,15 @@
         "api.dtupay.com",
         "api.sdkwork.cn",
         "api.birdcoder.cn",
-        "api.dtupay.cn"
+        "api.dtupay.cn",
+        "api.skubc.com",
+        "api.skubc.cn",
+        "api.zowalk.com",
+        "api.zowalk.cn",
+        "api.offer86.com",
+        "api.offer86.cn",
+        "api.86offer.com",
+        "api.86offer.cn"
       ]
     },
     "application.public-ingress": {
@@ -272,7 +304,15 @@
             "modelkit-dev.dtupay.com",
             "modelkit-dev.sdkwork.cn",
             "modelkit-dev.birdcoder.cn",
-            "modelkit-dev.dtupay.cn"
+            "modelkit-dev.dtupay.cn",
+            "modelkit-dev.skubc.com",
+            "modelkit-dev.skubc.cn",
+            "modelkit-dev.zowalk.com",
+            "modelkit-dev.zowalk.cn",
+            "modelkit-dev.offer86.com",
+            "modelkit-dev.offer86.cn",
+            "modelkit-dev.86offer.com",
+            "modelkit-dev.86offer.cn"
           ]
         },
         "test": {
@@ -282,7 +322,15 @@
             "modelkit-test.dtupay.com",
             "modelkit-test.sdkwork.cn",
             "modelkit-test.birdcoder.cn",
-            "modelkit-test.dtupay.cn"
+            "modelkit-test.dtupay.cn",
+            "modelkit-test.skubc.com",
+            "modelkit-test.skubc.cn",
+            "modelkit-test.zowalk.com",
+            "modelkit-test.zowalk.cn",
+            "modelkit-test.offer86.com",
+            "modelkit-test.offer86.cn",
+            "modelkit-test.86offer.com",
+            "modelkit-test.86offer.cn"
           ]
         },
         "staging": {
@@ -292,7 +340,15 @@
             "modelkit-staging.dtupay.com",
             "modelkit-staging.sdkwork.cn",
             "modelkit-staging.birdcoder.cn",
-            "modelkit-staging.dtupay.cn"
+            "modelkit-staging.dtupay.cn",
+            "modelkit-staging.skubc.com",
+            "modelkit-staging.skubc.cn",
+            "modelkit-staging.zowalk.com",
+            "modelkit-staging.zowalk.cn",
+            "modelkit-staging.offer86.com",
+            "modelkit-staging.offer86.cn",
+            "modelkit-staging.86offer.com",
+            "modelkit-staging.86offer.cn"
           ]
         }
       },
@@ -302,7 +358,15 @@
         "modelkit.dtupay.com",
         "modelkit.sdkwork.cn",
         "modelkit.birdcoder.cn",
-        "modelkit.dtupay.cn"
+        "modelkit.dtupay.cn",
+        "modelkit.skubc.com",
+        "modelkit.skubc.cn",
+        "modelkit.zowalk.com",
+        "modelkit.zowalk.cn",
+        "modelkit.offer86.com",
+        "modelkit.offer86.cn",
+        "modelkit.86offer.com",
+        "modelkit.86offer.cn"
       ]
     }
   },

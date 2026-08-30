@@ -16,9 +16,9 @@
   "contracts": {
     "sdkDependencies": [
       {
-        "workspace": "sdkwork-modelkit-sdk-typescript",
-        "surface": "open-api",
-        "credentialMode": "protected-open-api-flexible"
+        "workspace": "sdkwork-modelkit-app-sdk",
+        "surface": "app-api",
+        "credentialMode": "authenticated-app-api"
       }
     ],
     "dependencyApiExports": [],
@@ -26,12 +26,12 @@
     "permissionComposition": {
       "inheritanceMode": "module-catalog-with-overrides",
       "applicationModule": {
-        "manifestRef": "../../../../specs/iam.module.manifest.json"
+        "manifestRef": "../../../specs/iam.module.manifest.json"
       },
       "moduleCatalogRefs": [
         {
           "moduleId": "modelkit",
-          "manifestRef": "../../../../specs/iam.module.manifest.json",
+          "manifestRef": "../../../specs/iam.module.manifest.json",
           "inheritPermissions": true,
           "inheritRoles": true
         }

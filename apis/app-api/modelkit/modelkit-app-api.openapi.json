@@ -181,17 +181,19 @@
             "name": "offset",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string",
+              "format": "int64",
+              "x-sdkwork-int64-string": true
             }
           },
           {
             "name": "page_size",
             "in": "query",
             "schema": {
-              "type": "integer",
+              "type": "string",
               "format": "int64",
-              "maximum": 200
+              "maximum": 200,
+              "x-sdkwork-int64-string": true
             }
           }
         ],
@@ -456,8 +458,9 @@
           },
           "payload": {},
           "version": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string",
+            "format": "int64",
+            "x-sdkwork-int64-string": true
           }
         }
       },
@@ -495,8 +498,9 @@
             "type": "string"
           },
           "version": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string",
+            "format": "int64",
+            "x-sdkwork-int64-string": true
           }
         }
       },

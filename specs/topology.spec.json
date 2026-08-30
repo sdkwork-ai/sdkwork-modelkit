@@ -12,7 +12,8 @@
         "development",
         "test",
         "staging",
-        "production"
+        "production",
+        "demo"
       ]
     },
     "deploymentProfile": {
@@ -33,10 +34,12 @@
     "standalone.test": "etc/topology/standalone.test.env",
     "standalone.staging": "etc/topology/standalone.staging.env",
     "standalone.production": "etc/topology/standalone.production.env",
+    "standalone.demo": "etc/topology/standalone.demo.env",
     "cloud.development": "etc/topology/cloud.development.env",
     "cloud.test": "etc/topology/cloud.test.env",
     "cloud.staging": "etc/topology/cloud.staging.env",
-    "cloud.production": "etc/topology/cloud.production.env"
+    "cloud.production": "etc/topology/cloud.production.env",
+    "cloud.demo": "etc/topology/cloud.demo.env"
   },
   "envKeys": {
     "environment": "SDKWORK_MODELKIT_ENVIRONMENT",
@@ -215,6 +218,14 @@
           "application.public-ingress",
           "platform.api-gateway"
         ]
+      },
+      "standalone.demo": {
+        "processes": [],
+        "healthSurfaces": []
+      },
+      "cloud.demo": {
+        "processes": [],
+        "healthSurfaces": []
       }
     }
   },
@@ -274,6 +285,24 @@
             "api-staging.offer86.cn",
             "api-staging.86offer.com",
             "api-staging.86offer.cn"
+          ]
+        },
+        "demo": {
+          "httpHosts": [
+            "api-demo.sdkwork.com",
+            "api-demo.birdcoder.com",
+            "api-demo.dtupay.com",
+            "api-demo.sdkwork.cn",
+            "api-demo.birdcoder.cn",
+            "api-demo.dtupay.cn",
+            "api-demo.skubc.com",
+            "api-demo.skubc.cn",
+            "api-demo.zowalk.com",
+            "api-demo.zowalk.cn",
+            "api-demo.offer86.com",
+            "api-demo.offer86.cn",
+            "api-demo.86offer.com",
+            "api-demo.86offer.cn"
           ]
         }
       },
@@ -349,6 +378,24 @@
             "modelkit-staging.offer86.cn",
             "modelkit-staging.86offer.com",
             "modelkit-staging.86offer.cn"
+          ]
+        },
+        "demo": {
+          "httpHosts": [
+            "modelkit-demo.sdkwork.com",
+            "modelkit-demo.birdcoder.com",
+            "modelkit-demo.dtupay.com",
+            "modelkit-demo.sdkwork.cn",
+            "modelkit-demo.birdcoder.cn",
+            "modelkit-demo.dtupay.cn",
+            "modelkit-demo.skubc.com",
+            "modelkit-demo.skubc.cn",
+            "modelkit-demo.zowalk.com",
+            "modelkit-demo.zowalk.cn",
+            "modelkit-demo.offer86.com",
+            "modelkit-demo.offer86.cn",
+            "modelkit-demo.86offer.com",
+            "modelkit-demo.86offer.cn"
           ]
         }
       },

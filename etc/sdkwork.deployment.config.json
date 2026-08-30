@@ -20,6 +20,10 @@
     "production": {
       "applicationOrigin": "https://modelkit.sdkwork.com/",
       "cloudApiBaseUrl": "https://api.sdkwork.com/"
+    },
+    "demo": {
+      "applicationOrigin": "https://modelkit-demo.sdkwork.com/",
+      "cloudApiBaseUrl": "https://api-demo.sdkwork.com;https://api-demo.birdcoder.com;https://api-demo.dtupay.com;https://api-demo.sdkwork.cn;https://api-demo.birdcoder.cn;https://api-demo.dtupay.cn;https://api-demo.skubc.com;https://api-demo.skubc.cn;https://api-demo.zowalk.com;https://api-demo.zowalk.cn;https://api-demo.offer86.com;https://api-demo.offer86.cn;https://api-demo.86offer.com;https://api-demo.86offer.cn"
     }
   },
   "profiles": {
@@ -35,6 +39,9 @@
     "standalone.production": {
       "config": "topology/standalone.production.env"
     },
+    "standalone.demo": {
+      "config": "topology/standalone.demo.env"
+    },
     "cloud.development": {
       "config": "topology/cloud.development.env"
     },
@@ -46,6 +53,9 @@
     },
     "cloud.production": {
       "config": "topology/cloud.production.env"
+    },
+    "cloud.demo": {
+      "config": "topology/cloud.demo.env"
     }
   }
 }

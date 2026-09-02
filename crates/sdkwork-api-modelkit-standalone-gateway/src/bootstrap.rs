@@ -2,7 +2,7 @@ use axum::Router;
 use sdkwork_iam_web_adapter::{
     build_web_framework_builder, iam_web_request_context_resolver_from_env,
 };
-use sdkwork_web_bootstrap::{infra_public_path_prefixes, ComposedApiAssembly};
+use sdkwork_web_bootstrap::{infra_public_path_prefixes, ApiModuleRegistry};
 
 pub async fn build_router() -> Result<Router, Box<dyn std::error::Error + Send + Sync>> {
     let modelkit = sdkwork_api_modelkit_assembly::assemble_api_router()
@@ -11,7 +11,9 @@ pub async fn build_router() -> Result<Router, Box<dyn std::error::Error + Send +
     let iam = sdkwork_api_iam_assembly::assemble_app_api_contribution()
         .await
         .map_err(|error| -> Box<dyn std::error::Error + Send + Sync> { error.into() })?;
-    let composed = ComposedApiAssembly::try_compose("SDKWork ModelKit API", vec![iam, modelkit])?;
+    let mut module_registry = ApiModuleRegistry::new();
+    module_registry.add_modules(vec![iam, modelkit]);
+    let composed = module_registry.try_compose("SDKWork ModelKit API")?;
     let framework = build_web_framework_builder(
         iam_web_request_context_resolver_from_env().await,
         composed.route_manifest.clone(),

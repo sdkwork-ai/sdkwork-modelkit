@@ -1843,6 +1843,8 @@ dependencies = [
  "sdkwork-modelkit-database-host",
  "sdkwork-routes-modelkit-app-api",
  "sdkwork-web-bootstrap",
+ "sdkwork-web-core",
+ "tokio",
 ]
 
 [[package]]
@@ -1896,7 +1898,6 @@ dependencies = [
  "serde_json",
  "sqlx",
  "thiserror",
- "tokio",
 ]
 
 [[package]]
@@ -1937,7 +1938,6 @@ dependencies = [
  "serde_json",
  "sqlx",
  "thiserror",
- "tokio",
  "tracing",
 ]
 

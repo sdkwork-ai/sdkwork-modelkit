@@ -28,6 +28,10 @@ profiles:
         tls: dtupay.com
         mode: web+api
         web: pc
+      - domain: modelkit-test.noaper.com
+        tls: noaper.com
+        mode: web+api
+        web: pc
       - domain: modelkit-test.sdkwork.cn
         tls: sdkwork.cn
         mode: web+api
@@ -38,6 +42,10 @@ profiles:
         web: pc
       - domain: modelkit-test.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit-test.noaper.cn
+        tls: noaper.cn
         mode: web+api
         web: pc
       - domain: modelkit-test.skubc.com
@@ -110,6 +118,10 @@ profiles:
         tls: dtupay.com
         mode: web+api
         web: pc
+      - domain: modelkit-staging.noaper.com
+        tls: noaper.com
+        mode: web+api
+        web: pc
       - domain: modelkit-staging.sdkwork.cn
         tls: sdkwork.cn
         mode: web+api
@@ -120,6 +132,10 @@ profiles:
         web: pc
       - domain: modelkit-staging.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit-staging.noaper.cn
+        tls: noaper.cn
         mode: web+api
         web: pc
       - domain: modelkit-staging.skubc.com
@@ -192,6 +208,10 @@ profiles:
         tls: dtupay.com
         mode: web+api
         web: pc
+      - domain: modelkit.noaper.com
+        tls: noaper.com
+        mode: web+api
+        web: pc
       - domain: modelkit.sdkwork.cn
         tls: sdkwork.cn
         mode: web+api
@@ -202,6 +222,10 @@ profiles:
         web: pc
       - domain: modelkit.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+      - domain: modelkit.noaper.cn
+        tls: noaper.cn
         mode: web+api
         web: pc
       - domain: modelkit.skubc.com
@@ -277,6 +301,11 @@ profiles:
         mode: web+api
         web: pc
         apiPathStyle: full-prefix
+      - domain: modelkit.noaper.com
+        tls: noaper.com
+        mode: web+api
+        web: pc
+        apiPathStyle: full-prefix
       - domain: modelkit.sdkwork.cn
         tls: sdkwork.cn
         mode: web+api
@@ -289,6 +318,11 @@ profiles:
         apiPathStyle: full-prefix
       - domain: modelkit.dtupay.cn
         tls: dtupay.cn
+        mode: web+api
+        web: pc
+        apiPathStyle: full-prefix
+      - domain: modelkit.noaper.cn
+        tls: noaper.cn
         mode: web+api
         web: pc
         apiPathStyle: full-prefix

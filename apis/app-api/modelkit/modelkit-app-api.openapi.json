@@ -67,7 +67,6 @@
           }
         },
         "x-sdkwork-api-surface": "app-api",
-        "x-sdkwork-permission": "modelkit.preferences.read",
         "security": [
           {
             "AuthToken": [],
@@ -139,7 +138,6 @@
           }
         },
         "x-sdkwork-api-surface": "app-api",
-        "x-sdkwork-permission": "modelkit.preferences.write",
         "security": [
           {
             "AuthToken": [],
@@ -213,7 +211,6 @@
           }
         },
         "x-sdkwork-api-surface": "app-api",
-        "x-sdkwork-permission": "modelkit.catalog.read",
         "security": [
           {
             "AuthToken": [],
@@ -262,7 +259,6 @@
           }
         },
         "x-sdkwork-api-surface": "app-api",
-        "x-sdkwork-permission": "modelkit.catalog.write",
         "security": [
           {
             "AuthToken": [],
@@ -311,7 +307,6 @@
           }
         },
         "x-sdkwork-api-surface": "app-api",
-        "x-sdkwork-permission": "modelkit.catalog.read",
         "security": [
           {
             "AuthToken": [],
@@ -368,7 +363,6 @@
           }
         },
         "x-sdkwork-api-surface": "app-api",
-        "x-sdkwork-permission": "modelkit.catalog.write",
         "security": [
           {
             "AuthToken": [],
@@ -409,7 +403,6 @@
           }
         },
         "x-sdkwork-api-surface": "app-api",
-        "x-sdkwork-permission": "modelkit.catalog.read",
         "security": [
           {
             "AuthToken": [],

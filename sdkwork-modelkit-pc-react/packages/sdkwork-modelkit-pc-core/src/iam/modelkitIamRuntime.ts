@@ -1,3 +1,4 @@
+import { resolveBaseUrl } from '@sdkwork/sdk-common';
 import { createClient, type SdkworkAppClient } from '@sdkwork/iam-app-sdk';
 import {
   createSdkworkAppbasePcAuthRuntime,
@@ -58,7 +59,14 @@ export function resolveModelkitPlatformApiGatewayHttpUrl(): string {
       'VITE_SDKWORK_MODELKIT_APPLICATION_PUBLIC_HTTP_URL',
       'VITE_SDKWORK_APPBASE_APP_API_BASE_URL',
       'VITE_SDKWORK_IAM_APP_API_BASE_URL',
-    ) ?? 'http://127.0.0.1:3901'
+    )
+    // Shared §6.3 default: SDKWORK_API_BASE_URL candidates matched against
+    // the page host, else derived from it (cloud dev -> local cloud-gateway
+    // dev port; standalone -> same origin).
+    ?? resolveBaseUrl().url
+    // base-url-check: exempt (no-window SSR/test last-ditch modelkit local
+    // listener; browser resolution above goes through resolveBaseUrl)
+    ?? 'http://127.0.0.1:3901'
   );
 }
 

@@ -1,4 +1,5 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-api-modelkit-standalone-gateway"
 version.workspace = true
 edition.workspace = true
@@ -7,6 +8,9 @@ edition.workspace = true
 name = "sdkwork-api-modelkit-standalone-gateway"
 path = "src/main.rs"
 
+
+[lints]
+workspace = true
 [dependencies]
 axum.workspace = true
 sdkwork-api-modelkit-assembly.workspace = true

@@ -1,8 +1,12 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-modelkit-preferences-repository-sqlx"
 version.workspace = true
 edition.workspace = true
 
+
+[lints]
+workspace = true
 [dependencies]
 async-trait.workspace = true
 sdkwork-modelkit-preferences-service.workspace = true

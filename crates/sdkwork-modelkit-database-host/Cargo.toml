@@ -1,4 +1,5 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-modelkit-database-host"
 version.workspace = true
 edition.workspace = true
@@ -16,3 +17,7 @@ sqlx.workspace = true
 
 [dev-dependencies]
 tokio.workspace = true
+
+
+[lints]
+workspace = true

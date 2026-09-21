@@ -18,6 +18,7 @@
     "@hello-pangea/dnd": "^18.0.1",
     "@monaco-editor/react": "^4.7.0",
     "@sdkwork/auth-pc-react": "workspace:*",
+    "@sdkwork/iam-credential-entry": "workspace:*",
     "@sdkwork/modelkit-core": "workspace:*",
     "@sdkwork/modelkit-pc-auth": "workspace:*",
     "@sdkwork/modelkit-pc-core": "workspace:*",

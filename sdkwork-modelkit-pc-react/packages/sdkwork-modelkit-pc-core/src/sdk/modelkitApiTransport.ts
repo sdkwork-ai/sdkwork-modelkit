@@ -27,13 +27,22 @@ function normalizeBearerToken(value: unknown): string | undefined {
   return isBlank(normalized) ? undefined : normalized;
 }
 
+/**
+ * Resolve the Access-Token for a modelkit API call.
+ *
+ * The token is read exclusively from the session-scoped TokenManager, which is
+ * the single credential authority for this surface. The manager itself carries
+ * the credential-entry bootstrap fallback through the shared IAM reader
+ * (`readBootstrapAccessTokenFromProcessEnv`), so a bootstrap-only session still
+ * dispatches correctly.
+ *
+ * Reading `import.meta.env.VITE_SDKWORK_ACCESS_TOKEN` here is NOT a valid
+ * handoff: `VITE_*` is a public prefix baked into the browser bundle, and
+ * `IAM_CREDENTIAL_ENTRY_SPEC.md` §4 forbids exposing bootstrap tokens through
+ * `VITE_*`/`PORTAL_PUBLIC_*`. A cached env value would also shadow the real
+ * session credential after login (APP_SDK_INTEGRATION_SPEC §4).
+ */
 export function readModelkitAccessToken(): string | undefined {
-  const meta = import.meta as ImportMeta & { env?: Record<string, string | undefined> };
-  const fromEnv = meta.env?.VITE_SDKWORK_ACCESS_TOKEN || meta.env?.SDKWORK_ACCESS_TOKEN;
-  const envToken = normalizeBearerToken(fromEnv);
-  if (envToken) {
-    return envToken;
-  }
   return normalizeBearerToken(getModelkitGlobalTokenManager().getAccessToken());
 }
 

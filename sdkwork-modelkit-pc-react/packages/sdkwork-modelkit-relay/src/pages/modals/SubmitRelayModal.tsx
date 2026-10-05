@@ -3,6 +3,7 @@ import { X, Sparkles, Upload, GitBranch, FolderArchive, Trash2, ShieldCheck, Act
 import { toast } from 'sonner';
 import { RelayNode } from '../../services/types';
 import { relayService } from '../../services/RelayService';
+import { driveUploadService } from '@sdkwork/modelkit-pc-core/host';
 
 interface SubmitRelayModalProps {
   isOpen: boolean;
@@ -70,14 +71,15 @@ export function SubmitRelayModal({ isOpen, onClose, categoriesList, onRelaySubmi
     if (e.target.files) {
       const files = Array.from(e.target.files) as File[];
       files.forEach((file: File) => {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          if (event.target?.result) {
-            setScreenshots(prev => [...prev, event.target!.result as string].slice(0, 3));
+        // Screenshots upload through the shared Drive service and store the
+        // drive:// reference — never a base64 data URL (DRIVE_SPEC.md §18).
+        void driveUploadService
+          .uploadMedia(file)
+          .then((uploaded) => {
+            setScreenshots(prev => [...prev, uploaded.uri].slice(0, 3));
             toast.success(`Screenshot selected: ${file.name}`);
-          }
-        };
-        reader.readAsDataURL(file);
+          })
+          .catch(() => toast.error(`Screenshot upload failed: ${file.name}`));
       });
     }
   };
@@ -88,14 +90,13 @@ export function SubmitRelayModal({ isOpen, onClose, categoriesList, onRelaySubmi
     if (e.dataTransfer.files) {
       const files = (Array.from(e.dataTransfer.files) as File[]).filter((f: File) => f.type.startsWith('image/'));
       files.forEach((file: File) => {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          if (event.target?.result) {
-            setScreenshots(prev => [...prev, event.target!.result as string].slice(0, 3));
+        void driveUploadService
+          .uploadMedia(file)
+          .then((uploaded) => {
+            setScreenshots(prev => [...prev, uploaded.uri].slice(0, 3));
             toast.success(`Screenshot dropped: ${file.name}`);
-          }
-        };
-        reader.readAsDataURL(file);
+          })
+          .catch(() => toast.error(`Screenshot upload failed: ${file.name}`));
       });
     }
   };

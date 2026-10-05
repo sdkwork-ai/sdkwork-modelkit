@@ -4,6 +4,7 @@ import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'motion/react';
 import { SoftwareItem } from '../../services/types';
 import { softwareService } from '../../services/SoftwareService';
+import { driveUploadService } from '@sdkwork/modelkit-pc-core/host';
 
 interface SubmitAppModalProps {
   isOpen: boolean;
@@ -41,15 +42,14 @@ export function SubmitAppModal({ isOpen, onClose, categories, onAppSubmitted }: 
   const handleIconChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        if (event.target?.result) {
-          setNewAppIcon(event.target.result as string);
+      void driveUploadService
+        .uploadMedia(file)
+        .then((uploaded) => {
+          setNewAppIcon(uploaded.uri);
           setNewAppIconName(file.name);
           toast.success(`Icon selected: ${file.name}`);
-        }
-      };
-      reader.readAsDataURL(file);
+        })
+        .catch(() => toast.error(`Icon upload failed: ${file.name}`));
     }
   };
 
@@ -57,14 +57,13 @@ export function SubmitAppModal({ isOpen, onClose, categories, onAppSubmitted }: 
     if (e.target.files) {
       const files = Array.from(e.target.files) as File[];
       files.forEach((file: File) => {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          if (event.target?.result) {
-            setNewAppScreenshots(prev => [...prev, event.target!.result as string].slice(0, 3));
+        void driveUploadService
+          .uploadMedia(file)
+          .then((uploaded) => {
+            setNewAppScreenshots(prev => [...prev, uploaded.uri].slice(0, 3));
             toast.success(`Screenshot selected: ${file.name}`);
-          }
-        };
-        reader.readAsDataURL(file);
+          })
+          .catch(() => toast.error(`Screenshot upload failed: ${file.name}`));
       });
     }
   };
@@ -75,15 +74,14 @@ export function SubmitAppModal({ isOpen, onClose, categories, onAppSubmitted }: 
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       const file = e.dataTransfer.files[0];
       if (file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          if (event.target?.result) {
-            setNewAppIcon(event.target.result as string);
+        void driveUploadService
+          .uploadMedia(file)
+          .then((uploaded) => {
+            setNewAppIcon(uploaded.uri);
             setNewAppIconName(file.name);
             toast.success(`Icon dropped: ${file.name}`);
-          }
-        };
-        reader.readAsDataURL(file);
+          })
+          .catch(() => toast.error(`Icon upload failed: ${file.name}`));
       } else {
         toast.error('Only image files are supported');
       }
@@ -96,14 +94,13 @@ export function SubmitAppModal({ isOpen, onClose, categories, onAppSubmitted }: 
     if (e.dataTransfer.files) {
       const files = (Array.from(e.dataTransfer.files) as File[]).filter((f: File) => f.type.startsWith('image/'));
       files.forEach((file: File) => {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          if (event.target?.result) {
-            setNewAppScreenshots(prev => [...prev, event.target!.result as string].slice(0, 3));
+        void driveUploadService
+          .uploadMedia(file)
+          .then((uploaded) => {
+            setNewAppScreenshots(prev => [...prev, uploaded.uri].slice(0, 3));
             toast.success(`Screenshot dropped: ${file.name}`);
-          }
-        };
-        reader.readAsDataURL(file);
+          })
+          .catch(() => toast.error(`Screenshot upload failed: ${file.name}`));
       });
     }
   };

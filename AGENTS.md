@@ -14,7 +14,7 @@ Read `../sdkwork-specs/SOUL.md` before executing tasks in this root.
 
 - Repository root: `sdkwork-modelkit`
 - PC React surface: `sdkwork-modelkit-pc-react/`
-- App manifest: `sdkwork-modelkit-pc-react/sdkwork.app.config.json`
+- App manifest: `sdkwork-modelkit-pc-react/agent.app.config.json`
 
 ## Build, Test, and Verification
 

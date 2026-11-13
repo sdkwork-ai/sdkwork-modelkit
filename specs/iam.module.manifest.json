@@ -26,5 +26,17 @@
         "source": "openapi"
       }
     ]
+  },
+  "roles": {
+    "domainStandardRoles": [],
+    "roleExclusions": [],
+    "roleGrantExtensions": [
+      {
+        "roleCode": "app_user",
+        "patterns": [
+          "modelkit.*"
+        ]
+      }
+    ]
   }
 }
